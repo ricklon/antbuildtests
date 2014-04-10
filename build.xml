@@ -12,10 +12,15 @@
 		<tstamp/>
 		<!-- Create the build directory structure used by compile -->
 		<mkdir dir="${build}"/>
+		</target>
+
+	<target name="updateversion" depends="git.revision">
 		<propertyfile
 			file="my.properties">
 			<entry  key="MPIDEVER" type="int" default="0013" operation="+" pattern="0000"/>
+			<entry  key="hash"  value="${repository.version}" />
 		</propertyfile>
+
 	</target>
 
 	<!-- http://stackoverflow.com/questions/2974106/how-to-lookup-the-latest-git-commit-hash-from-an-ant-build-script -->
